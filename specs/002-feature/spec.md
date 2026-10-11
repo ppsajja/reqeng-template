@@ -2,8 +2,9 @@
 
 version: 1.0 | status: baselined (B1) หรือ draft | owner: <กลุ่ม> / PO: SH-xx | date: <วันที่>
 baseline: B1 (<วันที่>) | supersedes: | related: | feature file: <feature>.feature v1.0
+Constraint กลาง: specs/000-shared/constraints.md รุ่น x.y (ถ้ามี) | mockups: UI-xx-01 ถึง UI-xx-nn (ถ้ามี)
 
-ใส่สเปกที่กลุ่มเขียนในบทเรียน Living Specification แทนไฟล์นี้ทั้งไฟล์ (โครง 11 ส่วนด้านล่างเป็นตัวช่วยตรวจว่าครบ)
+ใส่สเปกที่กลุ่มเขียนในบทเรียน Living Specification แทนไฟล์นี้ทั้งไฟล์ (โครง 11 ส่วนด้านล่างเป็นตัวช่วยตรวจว่าครบ ส่วน 12 เพิ่มเมื่อมี mockup)
 ตัวอย่างที่กรอกครบ: github.com/ppsajja/baanprom-swreqspec/blob/main/specs/002-booking/spec.md
 
 ## Change Log
@@ -40,7 +41,16 @@ Non-goals: [อย่างน้อย 3 ข้อ พร้อมเหตุ�
 [entity และ attribute ที่แตะ ติดป้าย PII อ้าง data dictionary]
 
 ## 8. Constraints
+[เลือกแบบใดแบบหนึ่ง แล้วลบอีกแบบออก]
+
+[แบบ ก ยังไม่มีไฟล์กลาง (feature แรก ก่อนบทเรียน Verification, Traceability และ Change)]
 [REQ-CON-xx และข้อจำกัดเทคโนโลยี ถ้าไม่มีให้เขียนว่า "ไม่มีข้อจำกัดเรื่องภาษาหรือ framework ทีมเลือกเอง"]
+
+[แบบ ข มีไฟล์ specs/000-shared/constraints.md แล้ว (ดู docs/shared-constraints-guide.md)]
+Constraint กลาง: ใช้ทุกข้อใน specs/000-shared/constraints.md รุ่น x.y (ห้ามคัดลอกข้อความมาไว้ที่นี่)
+ข้อยกเว้นของ feature นี้: [ไม่มี หรือ รหัส เหตุผล และผู้อนุมัติ]
+เฉพาะ feature นี้:
+- [REQ-CON / REQ-SEC / REQ-PRV ที่ใช้กับ feature นี้อย่างเดียว ถ้าไม่มีให้เขียนว่า "ไม่มี"]
 
 ## 9. Open Questions และ Assumptions
 | ID | คำถาม / สมมติฐาน | เจ้าของ | กำหนด | พฤติกรรมชั่วคราว |
@@ -54,3 +64,13 @@ Non-goals: [อย่างน้อย 3 ข้อ พร้อมเหตุ�
 
 ## 11. AI Disclosure
 [ส่วนไหนใช้ AI ร่าง, prompt-log.md บันทึกที่เท่าไร, ใครตรวจ]
+
+## 12. หน้าจอ (UI)
+[เพิ่มส่วนนี้เมื่อมี mockup ที่ตกลงกับผู้ใช้หรือ PO แล้ว ดูวิธีใน docs/mockup-guide.md ถ้า spec อยู่ใน Baseline ต้องเพิ่มผ่าน CR]
+mockup อยู่ในโฟลเดอร์ mockups/ (ไฟล์ .html ให้ AI อ่าน ไฟล์ .png ให้คนดู) ตกลงกับ SH-xx วันที่ <วันที่> (EV-xx)
+ถ้า mockup กับข้อความใน spec ขัดกัน ให้ถือ spec เป็นหลัก แล้วเพิ่มเป็น Q-xx
+
+- UI-xx-01 <ชื่อหน้า>: mockups/UI-xx-01-<ชื่อ>.html (<จำนวน> สถานะ)
+  รองรับ: REQ-xx-nnn
+  ต้องตรง: [ข้อความ ปุ่ม ลำดับ หรือพฤติกรรมที่ผู้ใช้ตกลงแล้ว เขียนให้ตรวจได้ด้วย test หรือด้วยตา คั่นแต่ละข้อด้วย |]
+  ยืดหยุ่นได้: [สี ระยะห่าง การจัดวาง]
